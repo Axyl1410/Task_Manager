@@ -1,16 +1,16 @@
 package vn.edu.giadinh.tasksmanagement.utils;
 
-import com.mysql.cj.jdbc.Driver;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.mysql.cj.jdbc.Driver;
+
 public class DBUtil {
     // Static fields:
-    private static String url = "jdbc:mysql://localhost:3306/tasksmanagement";
+    private static String url = "jdbc:mysql://localhost:3306/task_manager";
     private static String username = "root";
-    private static String password = "Abc123456";
+    private static String password = "123456";
 
     // Static methods:
     public static Connection connect(String url, String username, String password) throws SQLException {
@@ -35,8 +35,7 @@ public class DBUtil {
         // Gọi executor
         try {
             executor.execute(connection);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             connection.close();
             throw e;
         }
@@ -53,8 +52,7 @@ public class DBUtil {
         T result = null;
         try {
             result = query.query(connection);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             connection.close();
             throw e;
         }
@@ -67,5 +65,6 @@ public class DBUtil {
     }
 
     // Constructor:
-    private DBUtil() {}
+    private DBUtil() {
+    }
 }

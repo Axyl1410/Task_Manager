@@ -1,10 +1,10 @@
 package vn.edu.giadinh.tasksmanagement.converter;
 
-import vn.edu.giadinh.tasksmanagement.enums.UserRole;
-import vn.edu.giadinh.tasksmanagement.models.User;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import vn.edu.giadinh.tasksmanagement.enums.UserRole;
+import vn.edu.giadinh.tasksmanagement.models.User;
 
 public class UserConverter implements Converter<User> {
     // Static fields:

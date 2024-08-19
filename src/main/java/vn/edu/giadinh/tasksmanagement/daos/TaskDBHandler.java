@@ -1,21 +1,22 @@
 package vn.edu.giadinh.tasksmanagement.daos;
 
-import vn.edu.giadinh.tasksmanagement.converter.TaskConverter;
-import vn.edu.giadinh.tasksmanagement.models.Task;
-import vn.edu.giadinh.tasksmanagement.utils.DBUtil;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.edu.giadinh.tasksmanagement.converter.TaskConverter;
+import vn.edu.giadinh.tasksmanagement.models.Task;
+import vn.edu.giadinh.tasksmanagement.utils.DBUtil;
+
 public class TaskDBHandler implements DBHandler<Task, Integer> {
     // Static fields:
     public static final String GET_SQL = "SELECT * FROM task" +
             " WHERE id=?";
     public static final String GET_ALL_SQL = "SELECT * FROM task";
-    public static final String INSERT_SQL = "INSERT INTO task(title, description, status, progress, responsibility, tester)" +
+    public static final String INSERT_SQL = "INSERT INTO task(title, description, status, progress, responsibility, tester)"
+            +
             " VALUES(?, ?, ?, ?, ?, ?)";
     public static final String UPDATE_SQL = "UPDATE task" +
             " SET title=?, description=?, status=?, progress=?, responsibility=?, tester=?" +
@@ -59,8 +60,7 @@ public class TaskDBHandler implements DBHandler<Task, Integer> {
 
                     return TaskConverter.getInstance()
                             .convert(table);
-                }
-        );
+                });
     }
 
     @Override
@@ -75,13 +75,11 @@ public class TaskDBHandler implements DBHandler<Task, Integer> {
                     while (table.next()) {
                         result.add(
                                 TaskConverter.getInstance()
-                                        .convert(table)
-                        );
+                                        .convert(table));
                     }
 
                     return result;
-                }
-        );
+                });
     }
 
     @Override
@@ -97,8 +95,7 @@ public class TaskDBHandler implements DBHandler<Task, Integer> {
                     statement.setString(6, target.getTester());
 
                     statement.executeUpdate();
-                }
-        );
+                });
     }
 
     @Override
@@ -115,8 +112,7 @@ public class TaskDBHandler implements DBHandler<Task, Integer> {
                     statement.setInt(7, target.getId());
 
                     statement.executeUpdate();
-                }
-        );
+                });
     }
 
     @Override
@@ -127,7 +123,6 @@ public class TaskDBHandler implements DBHandler<Task, Integer> {
                     statement.setInt(1, target.getId());
 
                     statement.executeUpdate();
-                }
-        );
+                });
     }
 }

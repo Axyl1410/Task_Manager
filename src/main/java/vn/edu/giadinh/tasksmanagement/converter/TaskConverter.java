@@ -1,11 +1,11 @@
 package vn.edu.giadinh.tasksmanagement.converter;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import vn.edu.giadinh.tasksmanagement.enums.TaskProgress;
 import vn.edu.giadinh.tasksmanagement.enums.TaskStatus;
 import vn.edu.giadinh.tasksmanagement.models.Task;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class TaskConverter implements Converter<Task> {
     // Static fields:

@@ -1,14 +1,14 @@
 package vn.edu.giadinh.tasksmanagement.daos;
 
-import vn.edu.giadinh.tasksmanagement.converter.UserConverter;
-import vn.edu.giadinh.tasksmanagement.models.User;
-import vn.edu.giadinh.tasksmanagement.utils.DBUtil;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import vn.edu.giadinh.tasksmanagement.converter.UserConverter;
+import vn.edu.giadinh.tasksmanagement.models.User;
+import vn.edu.giadinh.tasksmanagement.utils.DBUtil;
 
 public class UserDBHandler implements DBHandler<User, String> {
     // Static fields:
@@ -60,8 +60,7 @@ public class UserDBHandler implements DBHandler<User, String> {
                     // Chuyển đổi bảng kết quả truy vấn sang đối tượng User
                     return UserConverter.getInstance()
                             .convert(table);
-                }
-        );
+                });
     }
 
     @Override
@@ -89,8 +88,7 @@ public class UserDBHandler implements DBHandler<User, String> {
 
                     // Trả ra danh sách người dùng
                     return users;
-                }
-        );
+                });
     }
 
     @Override
@@ -116,8 +114,7 @@ public class UserDBHandler implements DBHandler<User, String> {
 
                     // Thực thi lệnh SQL
                     statement.executeUpdate();
-                }
-        );
+                });
     }
 
     @Override
@@ -143,8 +140,7 @@ public class UserDBHandler implements DBHandler<User, String> {
 
                     // Thực thi lệnh SQL
                     statement.executeUpdate();
-                }
-        );
+                });
     }
 
     @Override
@@ -163,7 +159,6 @@ public class UserDBHandler implements DBHandler<User, String> {
 
                     // Thực thi lệnh SQL
                     statement.executeUpdate();
-                }
-        );
+                });
     }
 }

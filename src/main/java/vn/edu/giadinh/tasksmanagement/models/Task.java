@@ -1,6 +1,10 @@
 package vn.edu.giadinh.tasksmanagement.models;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import vn.edu.giadinh.tasksmanagement.enums.TaskProgress;
 import vn.edu.giadinh.tasksmanagement.enums.TaskStatus;
 
