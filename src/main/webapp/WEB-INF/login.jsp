@@ -31,7 +31,7 @@ isELIgnored="false" %>
               <div>
                 <h2>Tên đăng nhập</h2>
                 <input
-                  class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   type="text"
                   name="username"
                   required
@@ -40,7 +40,7 @@ isELIgnored="false" %>
               <div>
                 <h2>Mật khẩu</h2>
                 <input
-                  class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   type="password"
                   name="password"
                   required
@@ -56,9 +56,10 @@ isELIgnored="false" %>
               </div>
             </form>
             <div class="border-t">
+              <div></div>
               <a href="https://github.com/Axyl1410" target="_blank">
                 <button
-                  class="mt-5 flex w-full items-center justify-center rounded-md border bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  class="mt-5 flex w-full items-center justify-center rounded-md border bg-[#F2F2F2] px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   <svg
                     class="size-5"
@@ -81,6 +82,7 @@ isELIgnored="false" %>
           <img
             class="h-screen object-cover"
             src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+            alt=""
           />
         </div>
       </div>
