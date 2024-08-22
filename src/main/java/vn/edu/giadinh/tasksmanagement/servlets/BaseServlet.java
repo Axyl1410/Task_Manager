@@ -5,12 +5,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import vn.edu.giadinh.tasksmanagement.daos.DBHandler;
+import vn.edu.giadinh.tasksmanagement.daos.TaskDBHandler;
 import vn.edu.giadinh.tasksmanagement.daos.UserDBHandler;
 import vn.edu.giadinh.tasksmanagement.enums.UserRole;
+import vn.edu.giadinh.tasksmanagement.models.Task;
 import vn.edu.giadinh.tasksmanagement.models.User;
 
 public class BaseServlet extends HttpServlet {
     // Fields:
+
     protected DBHandler<User, String> userDBHandler;
 
     // Constructors:

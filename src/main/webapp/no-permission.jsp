@@ -6,6 +6,11 @@ isELIgnored="false" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="icon"
+      href="https://nguyentruonggiang.id.vn/b11.webp"
+      type="image/svg+xml"
+    />
     <title>403</title>
     <style>
       .content h2.header:after {

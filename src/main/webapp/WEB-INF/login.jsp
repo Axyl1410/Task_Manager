@@ -5,7 +5,12 @@ isELIgnored="false" %>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Đăng nhập</title>
+    <link
+      rel="icon"
+      href="https://nguyentruonggiang.id.vn/b11.webp"
+      type="image/svg+xml"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
@@ -57,7 +62,10 @@ isELIgnored="false" %>
             </form>
             <div class="border-t">
               <div class="my-5 font-bold">Star for me:</div>
-              <a href="https://github.com/Axyl1410" target="_blank">
+              <a
+                href="https://github.com/Axyl1410/task_manager"
+                target="_blank"
+              >
                 <button
                   class="mt-5 flex w-full items-center justify-center rounded-md border bg-[#F2F2F2] px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
