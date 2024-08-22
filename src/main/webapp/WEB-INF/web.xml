@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
     <filter>
         <filter-name>LoginFilter</filter-name>
-        <filter-class>vn.edu.giadinh.tasksmanagement.servlets.LoginFilter</filter-class>
+        <filter-class>vn.edu.giadinh.tasksmanagement.filter.LoginFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>

@@ -7,7 +7,7 @@
         <img
           class="size-10"
           alt=""
-          src="https://nguyentruonggiang.id.vn/img/logoblue.webp"
+          src="https://nguyentruonggiang.id.vn/b11.webp"
         />
         &nbsp; &nbsp;
         <h1 class="font-bold">Task manager</h1>
@@ -108,14 +108,14 @@
                   />
                 </g>
               </svg>
-              &nbsp; Team
+              &nbsp; Users
             </div>
           </a>
         </div>
       </div>
     </div>
     <div class="border-t pt-4">
-      <a href="${pageContext.request.contextPath}/logout">
+      <a href="/logout">
         <div
           class="flex items-center stroke-slate-300 p-2 transition-colors duration-300 hover:bg-slate-700 hover:stroke-white hover:text-white"
         >
