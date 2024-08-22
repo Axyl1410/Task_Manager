@@ -1,5 +1,6 @@
+<%@ page import="vn.edu.giadinh.tasksmanagement.models.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"
-isELIgnored="false" %>
+         isELIgnored="false" %>
 <html>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@ isELIgnored="false" %>
   <script src="https://cdn.tailwindcss.com"></script>
   <body>
     <%@ include file="./component/sidebar.jsp" %>
-    <h2 class="ml-[240px] p-4">Hello World!</h2>
+    <h2 class="ml-[240px] p-4"> xin chào ${sessionScope.user} !</h2>
+    <a class="ml-[240px] p-4" href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
   </body>
 </html>

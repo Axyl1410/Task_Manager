@@ -6,6 +6,9 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head>
     <title>Danh sách người dùng</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <%-- Trường hợp không có danh sách người dùng thì chuyển hướng về trang
@@ -16,34 +19,37 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
     <%-- Trường hợp có danh sách người dùng thì in ra bảng danh sách nguười
     dùng--%>
-    <table>
-      <thead>
+    <%@ include file="../component/sidebar.jsp" %>
+    <div class="ml-[240px] p-4">
+        <table>
+        <thead>
         <tr>
-          <th>Tên đăng nhập</th>
+            <th>Tên đăng nhập</th>
 
-          <th>Họ và tên</th>
+            <th>Họ và tên</th>
 
-          <th>Vai trò</th>
+            <th>Vai trò</th>
         </tr>
-      </thead>
+        </thead>
 
-      <tbody>
+        <tbody>
         <c:forEach items="${requestScope.users}" var="user">
-          <tr>
-            <td>
-              <c:out value="${user.username}" />
-            </td>
+            <tr>
+                <td>
+                    <c:out value="${user.username}" />
+                </td>
 
-            <td>
-              <c:out value="${user.fullName}" />
-            </td>
+                <td>
+                    <c:out value="${user.fullName}" />
+                </td>
 
-            <td>
-              <c:out value="${user.role}" />
-            </td>
-          </tr>
+                <td>
+                    <c:out value="${user.role}" />
+                </td>
+            </tr>
         </c:forEach>
-      </tbody>
+        </tbody>
     </table>
+    </div>
   </body>
 </html>
