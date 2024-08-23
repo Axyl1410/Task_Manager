@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
-isELIgnored="false" %>
+isELIgnored="false" %><%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,6 +52,11 @@ isELIgnored="false" %>
                   required
                 />
               </div>
+              <c:if test="${not empty error}">
+                <div class="py-4 text-red-500">
+                  <c:out value="${error}" />
+                </div>
+              </c:if>
               <div>
                 <button
                   class="my-5 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
