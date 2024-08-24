@@ -18,7 +18,7 @@ prefix="c" %>
       <jsp:forward page="${pageContext.request.contextPath}/error.jsp" />
     </c:if>
 
-    <%@ include file="./component/sidebar.jsp" %>
+    <%@ include file="../component/sidebar.jsp" %>
     <div class="ml-[240px] p-4">
       <div class="w-full">
         <div>
@@ -120,6 +120,7 @@ prefix="c" %>
               </form>
               <button
                 class="flex items-center rounded-sm bg-red-600 px-4 py-2 text-white hover:bg-red-500 active:bg-red-400"
+                onclick="const id = document.getElementById('username').value; deletetask(id)"
               >
                 Remove Task &nbsp;
                 <svg
@@ -136,6 +137,14 @@ prefix="c" %>
             <div class="w-full p-4 pb-0">
               <p class="pb-2 text-xl font-bold">Modify task</p>
               <form action="post">
+                <div class="pb-2">
+                  <p>id</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifyid"
+                  />
+                </div>
                 <div class="pb-2">
                   <p>Title</p>
                   <input
@@ -187,6 +196,7 @@ prefix="c" %>
               </form>
               <button
                 class="mt-2 flex items-center rounded-sm bg-sky-600 px-4 py-2 text-white hover:bg-sky-500 active:bg-sky-400"
+                onclick="const idtitle=document.getElementById('modifyid').value; const modifytitle = document.getElementById('modifytitle').value; const modifydescription = document.getElementById('modifydescription').value; const modifystatus = document.getElementById('modifystatus').value; const modifyprogress = document.getElementById('modifyprogress').value; const modifyresponsibility = document.getElementById('modifyresponsibility').value; const modifytester = document.getElementById('modifytester').value; modifytask(idtitle,modifytitle,modifydescription,modifystatus,modifyprogress,modifyresponsibility,modifytester)"
               >
                 modify &nbsp;
                 <svg
@@ -271,6 +281,49 @@ prefix="c" %>
       </div>
     </div>
     <script>
+      const deletetask = (id) => {
+        fetch("deletetask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            id: id,
+          }),
+        }).then((response) => {
+          if (response.ok) {
+            alert("Delete task success");
+            window.location.reload();
+          } else {
+            alert("Delete task fail");
+          }
+        });
+      };
+
+      const modifytask = (id, title, description, status, progress, tester) => {
+        fetch("modifytask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            id: id,
+            title: title,
+            description: description,
+            status: status,
+            progress: progress,
+            tester: tester,
+          }),
+        }).then((response) => {
+          if (response.ok) {
+            alert("Modify task success");
+            window.location.reload();
+          } else {
+            alert("Modify task fail");
+          }
+        });
+      };
+
       const addtask = (
         title,
         description,

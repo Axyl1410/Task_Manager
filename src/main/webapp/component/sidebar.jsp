@@ -32,7 +32,7 @@
               &nbsp; Dashboard
             </div>
           </a>
-          <a href="tasks">
+          <a href="/tasks">
             <div
               class="group flex items-center fill-slate-300 p-2 transition-colors duration-300 hover:bg-slate-700 hover:fill-white hover:text-white"
             >

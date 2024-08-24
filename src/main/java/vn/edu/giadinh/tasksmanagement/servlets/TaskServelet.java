@@ -26,7 +26,7 @@ public class TaskServelet extends HttpServlet {
       List<Task> tasks = TaskDBHandler.getInstance().getAll();
 
       request.setAttribute("tasks", tasks);
-      request.getRequestDispatcher("tasks.jsp").forward(request, response);
+      request.getRequestDispatcher("/WEB-INF/tasks.jsp").forward(request, response);
     } catch (SQLException e) {
       e.printStackTrace();
       out.println("Lỗi khi lấy dữ liệu tasks.");
