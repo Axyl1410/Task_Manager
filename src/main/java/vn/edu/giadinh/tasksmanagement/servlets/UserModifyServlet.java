@@ -30,7 +30,28 @@ public class UserModifyServlet extends BaseServlet {
       String username = request.getParameter("username");
       String password = request.getParameter("password");
       String fullname = request.getParameter("fullname");
-      UserRole role = UserRole.valueOf(request.getParameter("role"));
+      UserRole role;
+//      UserRole role = UserRole.valueOf(request.getParameter("role"));
+
+      User existingUser = userDBHandler.get(username);
+      if (existingUser == null) {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        return;
+      }
+
+      if (password == null || password.isEmpty()) {
+        password = existingUser.getPassword();
+      }
+      if (fullname == null || fullname.isEmpty()) {
+        fullname = existingUser.getFullName();
+      }
+
+      String roleParam = request.getParameter("role");
+      if (roleParam == null || roleParam.isEmpty()) {
+        role = existingUser.getRole();
+      } else {
+        role = UserRole.valueOf(roleParam);
+      }
 
       User user = new User(username, password, fullname, role);
 

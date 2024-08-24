@@ -28,13 +28,20 @@ public class UserDeleteServlet extends BaseServlet {
 
     try {
       String username = request.getParameter("username");
+
+      User existingUser = userDBHandler.get(username);
+      if (existingUser == null) {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        return;
+      }
+
       User userToDelete = new User();
       userToDelete.setUsername(username);
 
       userDBHandler.delete(userToDelete);
       response.sendRedirect("index.jsp");
     } catch (SQLException e) {
-      e.printStackTrace();
+      throw new RuntimeException(e);
     }
   }
 }

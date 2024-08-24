@@ -4,6 +4,7 @@ import vn.edu.giadinh.tasksmanagement.daos.TaskDBHandler;
 import vn.edu.giadinh.tasksmanagement.enums.TaskProgress;
 import vn.edu.giadinh.tasksmanagement.enums.TaskStatus;
 import vn.edu.giadinh.tasksmanagement.models.Task;
+import vn.edu.giadinh.tasksmanagement.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,13 +28,45 @@ public class TaskModifyServlet extends HttpServlet {
       int id = Integer.parseInt(request.getParameter("id"));
       String title = request.getParameter("title");
       String description = request.getParameter("description");
-      TaskStatus status = TaskStatus.valueOf(request.getParameter("status"));
-      TaskProgress progress = TaskProgress.valueOf(request.getParameter("progress"));
+      TaskStatus status = null;
+      TaskProgress progress = null;
       String responsibility = request.getParameter("responsibility");
       String tester = request.getParameter("tester");
 
-      Task task = new Task(id, title, description, status, progress, responsibility, tester);
+      Task existingTask = taskDBHandler.get(id);
+      if (existingTask == null) {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        return;
+      }
 
+      if (title == null || title.equals("")) {
+        title = existingTask.getTitle();
+      }
+      if (description == null || description.equals("")) {
+        description = existingTask.getDescription();
+      }
+      if (responsibility == null || responsibility.equals("")) {
+        responsibility = existingTask.getResponsibility();
+      }
+      if (tester == null || tester.equals("")) {
+        tester = existingTask.getTester();
+      }
+
+      String statusParem = request.getParameter("status");
+      if (status == null || status.equals("")) {
+        status = existingTask.getStatus();
+      } else {
+        status = TaskStatus.valueOf(statusParem);
+      }
+
+      String progressParem = request.getParameter("progress");
+      if (progress == null || progress.equals("")) {
+        progress = existingTask.getProgress();
+      } else {
+        progress = TaskProgress.valueOf(progressParem);
+      }
+
+      Task task = new Task(id, title, description, status, progress, responsibility, tester);
 
       taskDBHandler.update(task);
     } catch (SQLException e) {

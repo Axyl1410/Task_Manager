@@ -23,6 +23,12 @@ public class TaskDeleteServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     try {
       int id = Integer.parseInt(request.getParameter("id"));
+
+      Task existingTask = taskDBHandler.get(id);
+      if (existingTask == null) {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        return;
+      }
       Task task = new Task(id);
       taskDBHandler.delete(task);
     } catch (SQLException e) {

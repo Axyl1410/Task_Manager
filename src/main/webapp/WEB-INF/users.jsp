@@ -12,6 +12,17 @@ prefix="c" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #toggle {
+        max-height: 1200px;
+        overflow: hidden;
+        transition: max-height 0.8s ease-in-out;
+      }
+
+      #toggle.hidden1 {
+        max-height: 0;
+      }
+    </style>
   </head>
   <body>
     <%-- Trường hợp không có danh sách người dùng thì chuyển hướng về trang
@@ -24,7 +35,17 @@ prefix="c" %>
     dùng--%> <%@ include file="../component/sidebar.jsp" %>
     <div class="ml-[240px] p-4">
       <div class="w-full">
-        <div>
+        <div class="w-full border-b border-slate-500 pb-4">
+          <h1 class="text-2xl font-bold">Want to make modify?</h1>
+          <button
+            class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
+            onclick="togglehidden()"
+            id="togglebtn"
+          >
+            Click me
+          </button>
+        </div>
+        <div class="hidden1 pt-2" id="toggle">
           <p class="pb-4 text-2xl font-bold">Danger Zone</p>
           <div class="w-full gap-4 border border-red-500 pb-4">
             <div class="w-full border-b border-slate-500 p-4">
@@ -231,68 +252,84 @@ prefix="c" %>
     </div>
     <script>
       let deleteUser = (id) => {
-        console.log(id);
-        fetch("deleteuser", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            username: id,
-          }),
-        }).then((response) => {
-          if (response.ok) {
-            alert("Delete user success");
-            window.location.reload();
-          } else {
-            alert("Delete user fail");
-          }
-        });
+        if (id == "") alert("missing information");
+        else if (confirm("Are you sure you want to delete this user?")) {
+          fetch("deleteuser", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              username: id,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Delete user success");
+              window.location.reload();
+            } else {
+              alert("Delete user fail");
+            }
+          });
+        }
       };
 
       let addUser = (username, fullname, password, role) => {
-        fetch("adduser", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            username: username,
-            fullname: fullname,
-            password: password,
-            role: role,
-          }),
-        }).then((response) => {
-          if (response.ok) {
-            alert("Add user success");
-            window.location.reload();
-          } else {
-            alert("Add user fail");
-          }
-        });
+        if (username == "" || fullname == "" || password == "" || role == "")
+          alert("missing information");
+        else if (confirm("Are you sure you want to add this user?")) {
+          fetch("adduser", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              username: username,
+              fullname: fullname,
+              password: password,
+              role: role,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Add user success");
+              window.location.reload();
+            } else {
+              alert("Add user fail");
+            }
+          });
+        }
       };
 
       let modifyUser = (username, fullname, password, role) => {
-        fetch("modifyuser", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            username: username,
-            fullname: fullname,
-            password: password,
-            role: role,
-          }),
-        }).then((response) => {
-          if (response.ok) {
-            alert("Modify user success");
-            window.location.reload();
-          } else {
-            alert("Modify user fail");
-          }
-        });
+        if (username == "") alert("Please input username");
+        else if (confirm("Are you sure you want to modify this user?")) {
+          fetch("modifyuser", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              username: username,
+              fullname: fullname,
+              password: password,
+              role: role,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Modify user success");
+              window.location.reload();
+            } else {
+              alert("Modify user fail");
+            }
+          });
+        }
       };
+
+      const toggle = document.getElementById("toggle");
+      const btn = document.getElementById("togglebtn");
+
+      btn.addEventListener("click", () => {
+        toggle.classList.toggle("hidden1");
+      });
     </script>
   </body>
 </html>

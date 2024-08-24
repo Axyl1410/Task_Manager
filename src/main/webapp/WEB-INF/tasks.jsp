@@ -12,6 +12,17 @@ prefix="c" %>
       href="https://nguyentruonggiang.id.vn/img/logoblue.webp"
       type="image/svg+xml"
     />
+    <style>
+      #toggle {
+        max-height: 1320px;
+        overflow: hidden;
+        transition: max-height 0.8s ease-in-out;
+      }
+
+      #toggle.hidden1 {
+        max-height: 0;
+      }
+    </style>
   </head>
   <body>
     <c:if test="${empty requestScope.tasks and requestScope.tasks.isEmpty()}">
@@ -21,7 +32,17 @@ prefix="c" %>
     <%@ include file="../component/sidebar.jsp" %>
     <div class="ml-[240px] p-4">
       <div class="w-full">
-        <div>
+        <div class="w-full border-b border-slate-500 pb-4">
+          <h1 class="text-2xl font-bold">Want to make modify?</h1>
+          <button
+            class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
+            onclick="togglehidden()"
+            id="togglebtn"
+          >
+            Click me
+          </button>
+        </div>
+        <div class="hidden1 pt-2" id="toggle">
           <p class="pb-4 text-2xl font-bold">Danger Zone</p>
           <div class="w-full gap-4 border border-red-500 pb-4">
             <div class="w-full border-b border-slate-500 p-4">
@@ -109,7 +130,7 @@ prefix="c" %>
               <p class="pb-2 text-xl font-bold">Remove task</p>
               <form action="post">
                 <div class="pb-2">
-                  <p>Username</p>
+                  <p>id</p>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
@@ -282,46 +303,52 @@ prefix="c" %>
     </div>
     <script>
       const deletetask = (id) => {
-        fetch("deletetask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            id: id,
-          }),
-        }).then((response) => {
-          if (response.ok) {
-            alert("Delete task success");
-            window.location.reload();
-          } else {
-            alert("Delete task fail");
-          }
-        });
+        if (id == "") alert("Please enter id");
+        else if (confirm("Are you sure to delete this task?")) {
+          fetch("deletetask", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              id: id,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Delete task success");
+              window.location.reload();
+            } else {
+              alert("Delete task fail");
+            }
+          });
+        }
       };
 
       const modifytask = (id, title, description, status, progress, tester) => {
-        fetch("modifytask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            id: id,
-            title: title,
-            description: description,
-            status: status,
-            progress: progress,
-            tester: tester,
-          }),
-        }).then((response) => {
-          if (response.ok) {
-            alert("Modify task success");
-            window.location.reload();
-          } else {
-            alert("Modify task fail");
-          }
-        });
+        if (id == "") alert("Please enter id");
+        else if (confirm("Are you sure to modify this task?")) {
+          fetch("modifytask", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              id: id,
+              title: title,
+              description: description,
+              status: status,
+              progress: progress,
+              tester: tester,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Modify task success");
+              window.location.reload();
+            } else {
+              alert("Modify task fail");
+            }
+          });
+        }
       };
 
       const addtask = (
@@ -332,28 +359,46 @@ prefix="c" %>
         responsibility,
         tester
       ) => {
-        fetch("addtask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            title: title,
-            description: description,
-            status: status,
-            progress: progress,
-            responsibility: responsibility,
-            tester: tester,
-          }),
-        }).then((response) => {
-          if (response.ok) {
-            alert("Add task success");
-            window.location.reload();
-          } else {
-            alert("Add task fail");
-          }
-        });
+        if (
+          title == "" ||
+          description == "" ||
+          status == "" ||
+          progress == "" ||
+          responsibility == "" ||
+          tester == ""
+        )
+          alert("Please enter all fields");
+        else if (confirm("Are you sure to add this task?")) {
+          fetch("addtask", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              title: title,
+              description: description,
+              status: status,
+              progress: progress,
+              responsibility: responsibility,
+              tester: tester,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Add task success");
+              window.location.reload();
+            } else {
+              alert("Add task fail");
+            }
+          });
+        }
       };
+
+      const toggle = document.getElementById("toggle");
+      const btn = document.getElementById("togglebtn");
+
+      btn.addEventListener("click", () => {
+        toggle.classList.toggle("hidden1");
+      });
     </script>
   </body>
 </html>
