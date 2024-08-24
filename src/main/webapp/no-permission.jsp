@@ -8,7 +8,7 @@ isELIgnored="false" %>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="icon"
-      href="https://nguyentruonggiang.id.vn/b11.webp"
+      href="https://nguyentruonggiang.id.vn/img/logoblue.webp"
       type="image/svg+xml"
     />
     <title>403</title>

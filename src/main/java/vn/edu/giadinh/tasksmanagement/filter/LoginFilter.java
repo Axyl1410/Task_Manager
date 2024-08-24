@@ -34,7 +34,6 @@ public class LoginFilter implements Filter {
     if (!isLoggedIn && !isLoginPageRequest) {
       // Chuyển hướng đến trang login
       req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
-      ;
       return;
     }
 

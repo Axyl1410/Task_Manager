@@ -38,6 +38,5 @@ public class UserModifyServlet extends BaseServlet {
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
-
   }
 }

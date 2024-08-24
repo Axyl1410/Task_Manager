@@ -9,7 +9,7 @@ prefix="c" %>
     <title>Đăng nhập</title>
     <link
       rel="icon"
-      href="https://nguyentruonggiang.id.vn/b11.webp"
+      href="https://nguyentruonggiang.id.vn/img/logoblue.webp"
       type="image/svg+xml"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,7 +25,7 @@ prefix="c" %>
           >
             <img
               class="size-10"
-              src="https://nguyentruonggiang.id.vn/img/b11black.webp"
+              src="https://nguyentruonggiang.id.vn/img/logoblue.webp"
               alt="Your Company"
             />
             <h1 class="text-2xl font-bold">Sign in to your account</h1>

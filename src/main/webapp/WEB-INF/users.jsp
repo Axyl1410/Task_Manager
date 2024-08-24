@@ -6,7 +6,7 @@ prefix="c" %>
     <title>Danh sách người dùng</title>
     <link
       rel="icon"
-      href="https://nguyentruonggiang.id.vn/b11.webp"
+      href="https://nguyentruonggiang.id.vn/img/logoblue.webp"
       type="image/svg+xml"
     />
     <meta charset="UTF-8" />
@@ -35,7 +35,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="username"
                     id="addUsername"
                   />
                 </div>
@@ -44,7 +43,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="fullname"
                     id="addFullname"
                   />
                 </div>
@@ -53,7 +51,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="password"
                     id="addPassword"
                   />
                 </div>
@@ -62,7 +59,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="role"
                     id="addrole"
                   />
                 </div>
@@ -104,7 +100,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="username"
                     id="deleteUser"
                   />
                 </div>
@@ -133,7 +128,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="username"
                     id="modifyusername"
                   />
                 </div>
@@ -142,7 +136,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="fullname"
                     id="modifyfullname"
                   />
                 </div>
@@ -151,7 +144,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="password"
                     id="modifypassword"
                   />
                 </div>
@@ -160,7 +152,6 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
-                    name="role"
                     id="modifyrole"
                   />
                 </div>
