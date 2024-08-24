@@ -134,6 +134,7 @@ prefix="c" %>
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
                     name="username"
+                    id="modifyusername"
                   />
                 </div>
                 <div class="pb-2">
@@ -142,6 +143,7 @@ prefix="c" %>
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
                     name="fullname"
+                    id="modifyfullname"
                   />
                 </div>
                 <div>
@@ -150,11 +152,22 @@ prefix="c" %>
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
                     name="password"
+                    id="modifypassword"
+                  />
+                </div>
+                <div>
+                  <p>role</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    name="role"
+                    id="modifyrole"
                   />
                 </div>
               </form>
               <button
                 class="mt-2 flex items-center rounded-sm bg-sky-600 px-4 py-2 text-white hover:bg-sky-500 active:bg-sky-400"
+                onclick="const modifypassword = document.getElementById('modifypassword').value ; const modifyfullname = document.getElementById('modifyfullname').value ; const modifyrole = document.getElementById('modifyrole').value ; const modifyusername = document.getElementById('modifyusername').value ; modifyUser(modifyusername,modifyfullname,modifypassword,modifyrole,modifyusername)"
               >
                 modify &nbsp;
                 <svg
@@ -262,6 +275,27 @@ prefix="c" %>
             window.location.href = "/";
           } else {
             console.error("Lỗi khi tạo người dùng");
+          }
+        });
+      };
+
+      let modifyUser = (username, fullname, password, role) => {
+        fetch("modifyuser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            username: username,
+            fullname: fullname,
+            password: password,
+            role: role,
+          }),
+        }).then((response) => {
+          if (response.ok) {
+            window.location.href = "/";
+          } else {
+            console.error("Lỗi khi thay đổi người dùng");
           }
         });
       };

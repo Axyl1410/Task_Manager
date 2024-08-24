@@ -31,11 +31,7 @@ public class UserAddServlet extends BaseServlet {
       String fullname = request.getParameter("fullname");
       UserRole role = UserRole.valueOf(request.getParameter("role"));
 
-      User user = new User();
-      user.setUsername(username);
-      user.setPassword(password);
-      user.setFullName(fullname);
-      user.setRole(role);
+      User user = new User(username, password, fullname, role);
 
       userDBHandler.insert(user);
     } catch (SQLException e) {

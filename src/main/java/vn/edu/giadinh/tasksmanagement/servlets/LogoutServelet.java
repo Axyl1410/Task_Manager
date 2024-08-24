@@ -13,13 +13,11 @@ import javax.servlet.http.HttpSession;
 public class LogoutServelet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    // Hủy bỏ session hiện tại
     HttpSession session = request.getSession(false);
     if (session != null) {
       session.invalidate();
     }
 
-    // Chuyển hướng về trang đăng nhập hoặc trang chủ
     request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
   }
 }

@@ -7,7 +7,7 @@
         <img
           class="size-10"
           alt=""
-          src="https://nguyentruonggiang.id.vn/b11.webp"
+          src="https://nguyentruonggiang.id.vn/img/logoblue.webp"
         />
         &nbsp; &nbsp;
         <h1 class="font-bold">Task manager</h1>

@@ -1,6 +1,7 @@
 package vn.edu.giadinh.tasksmanagement.servlets;
 
 import vn.edu.giadinh.tasksmanagement.daos.UserDBHandler;
+import vn.edu.giadinh.tasksmanagement.enums.UserRole;
 import vn.edu.giadinh.tasksmanagement.models.User;
 
 import javax.servlet.ServletException;
@@ -10,17 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/deleteuser")
-public class UserDeleteServlet extends BaseServlet {
-  public UserDeleteServlet() {
+@WebServlet("/modifyuser")
+public class UserModifyServlet extends BaseServlet {
+  public UserModifyServlet() {
     super();
   }
 
   private UserDBHandler userDBHandler = UserDBHandler.getInstance();
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     if (!isLoggedInUserAdmin(request)) {
       response.sendRedirect(request.getContextPath() + "/no-permission.jsp");
       return;
@@ -28,13 +28,16 @@ public class UserDeleteServlet extends BaseServlet {
 
     try {
       String username = request.getParameter("username");
-      User userToDelete = new User();
-      userToDelete.setUsername(username);
+      String password = request.getParameter("password");
+      String fullname = request.getParameter("fullname");
+      UserRole role = UserRole.valueOf(request.getParameter("role"));
 
-      userDBHandler.delete(userToDelete);
-      response.sendRedirect("index.jsp");
+      User user = new User(username, password, fullname, role);
+
+      userDBHandler.update(user);
     } catch (SQLException e) {
-      e.printStackTrace();
+      throw new RuntimeException(e);
     }
+
   }
 }
