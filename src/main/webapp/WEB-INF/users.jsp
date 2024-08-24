@@ -36,6 +36,7 @@ prefix="c" %>
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
                     name="username"
+                    id="addUsername"
                   />
                 </div>
                 <div class="pb-2">
@@ -44,6 +45,7 @@ prefix="c" %>
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
                     name="fullname"
+                    id="addFullname"
                   />
                 </div>
                 <div>
@@ -52,11 +54,22 @@ prefix="c" %>
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
                     name="password"
+                    id="addPassword"
+                  />
+                </div>
+                <div>
+                  <p>role</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    name="role"
+                    id="addrole"
                   />
                 </div>
               </form>
               <button
                 class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
+                onclick="const addusername = document.getElementById('addUsername').value; const addfullname = document.getElementById('addFullname').value; const addpassword = document.getElementById('addPassword').value; const addrole = document.getElementById('addrole').value; addUser(addusername, addfullname, addpassword,addrole)"
               >
                 Thêm người dùng &nbsp;
                 <svg
@@ -228,6 +241,27 @@ prefix="c" %>
             window.location.href = "/";
           } else {
             console.error("Lỗi khi xóa người dùng");
+          }
+        });
+      };
+
+      let addUser = (username, fullname, password, role) => {
+        fetch("adduser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            username: username,
+            fullname: fullname,
+            password: password,
+            role: role,
+          }),
+        }).then((response) => {
+          if (response.ok) {
+            window.location.href = "/";
+          } else {
+            console.error("Lỗi khi tạo người dùng");
           }
         });
       };
