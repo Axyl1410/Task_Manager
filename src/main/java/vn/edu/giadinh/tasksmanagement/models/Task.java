@@ -14,12 +14,25 @@ import vn.edu.giadinh.tasksmanagement.enums.TaskStatus;
 @Getter
 @Setter
 public class Task {
-    // Fields:
-    private int id;
-    private String title;
-    private String description;
-    private TaskStatus status;
-    private TaskProgress progress;
-    private String responsibility;
-    private String tester;
+  // Fields:
+  private int id;
+  private String title;
+  private String description;
+  private TaskStatus status;
+  private TaskProgress progress;
+  private String responsibility;
+  private String tester;
+
+  public Task(String title, String description, TaskStatus status, TaskProgress progress, String responsibility, String tester) {
+    this.title = title;
+    this.description = description;
+    this.status = status;
+    this.progress = progress;
+    this.responsibility = responsibility;
+    this.tester = tester;
+  }
+
+  public Task(String title, String description, TaskStatus status, TaskProgress progress) {
+    this(title, description, status, progress, null, null);
+  }
 }

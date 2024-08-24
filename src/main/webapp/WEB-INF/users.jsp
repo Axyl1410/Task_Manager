@@ -242,9 +242,10 @@ prefix="c" %>
           }),
         }).then((response) => {
           if (response.ok) {
-            window.location.href = "/";
+            alert("Delete user success");
+            window.location.reload();
           } else {
-            console.error("Lỗi khi xóa người dùng");
+            alert("Delete user fail");
           }
         });
       };
@@ -263,9 +264,10 @@ prefix="c" %>
           }),
         }).then((response) => {
           if (response.ok) {
-            window.location.href = "/";
+            alert("Add user success");
+            window.location.reload();
           } else {
-            console.error("Lỗi khi tạo người dùng");
+            alert("Add user fail");
           }
         });
       };
@@ -284,9 +286,10 @@ prefix="c" %>
           }),
         }).then((response) => {
           if (response.ok) {
-            window.location.href = "/";
+            alert("Modify user success");
+            window.location.reload();
           } else {
-            console.error("Lỗi khi thay đổi người dùng");
+            alert("Modify user fail");
           }
         });
       };

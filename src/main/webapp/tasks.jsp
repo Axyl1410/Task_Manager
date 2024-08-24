@@ -32,6 +32,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="addtitle"
                   />
                 </div>
                 <div class="pb-2">
@@ -39,6 +40,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="adddescription"
                   />
                 </div>
                 <div>
@@ -46,6 +48,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="addstatus"
                   />
                 </div>
                 <div>
@@ -53,6 +56,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="addprogress"
                   />
                 </div>
                 <div>
@@ -60,6 +64,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="addresponsibility"
                   />
                 </div>
                 <div>
@@ -67,39 +72,38 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="addtester"
                   />
                 </div>
               </form>
-              <div class="flex justify-between items-center">
-                <button
-                  class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
+              <button
+                class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
+                onclick="const addtitle = document.getElementById('addtitle').value; const adddescription = document.getElementById('adddescription').value; const addstatus = document.getElementById('addstatus').value; const addprogress = document.getElementById('addprogress').value; const addresponsibility = document.getElementById('addresponsibility').value; const addtester = document.getElementById('addtester').value; addtask(addtitle,adddescription,addstatus,addprogress,addresponsibility,addtester)"
+              >
+                Add task &nbsp;
+                <svg
+                  class="size-5"
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  Add task &nbsp;
-                  <svg
-                    class="size-5"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <style>
-                        .cls-1 {
-                          fill: none;
-                          stroke: #fff;
-                          stroke-linecap: round;
-                          stroke-linejoin: round;
-                          stroke-width: 2px;
-                        }
-                      </style>
-                    </defs>
-                    <title />
-                    <g id="plus">
-                      <line class="cls-1" x1="16" x2="16" y1="7" y2="25" />
-                      <line class="cls-1" x1="7" x2="25" y1="16" y2="16" />
-                    </g>
-                  </svg>
-                </button>
-                <p>Can be temporarily left empty responsibility and tester</p>
-              </div>
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: none;
+                        stroke: #fff;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 2px;
+                      }
+                    </style>
+                  </defs>
+                  <title />
+                  <g id="plus">
+                    <line class="cls-1" x1="16" x2="16" y1="7" y2="25" />
+                    <line class="cls-1" x1="7" x2="25" y1="16" y2="16" />
+                  </g>
+                </svg>
+              </button>
             </div>
             <div class="w-full border-b border-slate-500 p-4">
               <p class="pb-2 text-xl font-bold">Remove task</p>
@@ -110,6 +114,7 @@ prefix="c" %>
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
                     name="username"
+                    id="username"
                   />
                 </div>
               </form>
@@ -136,6 +141,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="modifytitle"
                   />
                 </div>
                 <div class="pb-2">
@@ -143,6 +149,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="modifydescription"
                   />
                 </div>
                 <div>
@@ -150,6 +157,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="modifystatus"
                   />
                 </div>
                 <div>
@@ -157,6 +165,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="modifyprogress"
                   />
                 </div>
                 <div>
@@ -164,6 +173,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="modifyresponsibility"
                   />
                 </div>
                 <div>
@@ -171,6 +181,7 @@ prefix="c" %>
                   <input
                     class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     type="text"
+                    id="modifytester"
                   />
                 </div>
               </form>
@@ -259,5 +270,37 @@ prefix="c" %>
         </div>
       </div>
     </div>
+    <script>
+      const addtask = (
+        title,
+        description,
+        status,
+        progress,
+        responsibility,
+        tester
+      ) => {
+        fetch("addtask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            title: title,
+            description: description,
+            status: status,
+            progress: progress,
+            responsibility: responsibility,
+            tester: tester,
+          }),
+        }).then((response) => {
+          if (response.ok) {
+            alert("Add task success");
+            window.location.reload();
+          } else {
+            alert("Add task fail");
+          }
+        });
+      };
+    </script>
   </body>
 </html>
