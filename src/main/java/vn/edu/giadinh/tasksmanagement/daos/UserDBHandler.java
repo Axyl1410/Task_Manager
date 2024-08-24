@@ -11,154 +11,154 @@ import vn.edu.giadinh.tasksmanagement.models.User;
 import vn.edu.giadinh.tasksmanagement.utils.DBUtil;
 
 public class UserDBHandler implements DBHandler<User, String> {
-    // Static fields:
-    private static final String GET_SQL = "SELECT * FROM user\n" +
-            " WHERE username=?";
-    private static final String GET_ALL_SQL = "SELECT * FROM user";
-    private static final String INSERT_SQL = "INSERT INTO user(username, password, fullName, role)\n" +
-            " VALUES (?, ?, ?, ?)";
-    private static final String UPDATE_SQL = "UPDATE user\n" +
-            " SET password=?, fullName=?, role=?\n" +
-            " WHERE username=?";
-    private static final String DELETE_SQL = "DELETE user\n" +
-            " WHERE username=?";
+  // Static fields:
+  private static final String GET_SQL = "SELECT * FROM user\n" +
+      " WHERE username=?";
+  private static final String GET_ALL_SQL = "SELECT * FROM user";
+  private static final String INSERT_SQL = "INSERT INTO user(username, password, fullName, role)\n" +
+      " VALUES (?, ?, ?, ?)";
+  private static final String UPDATE_SQL = "UPDATE user\n" +
+      " SET password=?, fullName=?, role=?\n" +
+      " WHERE username=?";
+  private static final String DELETE_SQL = "DELETE FROM user\n" +
+      " WHERE username=?";
 
-    private static UserDBHandler instance;
+  private static UserDBHandler instance;
 
-    // Static methods:
-    public static UserDBHandler getInstance() {
-        if (instance == null) {
-            instance = new UserDBHandler();
-        }
-
-        return instance;
+  // Static methods:
+  public static UserDBHandler getInstance() {
+    if (instance == null) {
+      instance = new UserDBHandler();
     }
 
-    // Constructors:
-    private UserDBHandler() {
+    return instance;
+  }
 
-    }
+  // Constructors:
+  private UserDBHandler() {
 
-    // Methods:
-    @Override
-    public User get(String key) throws SQLException {
-        return DBUtil.executeQuery(
-                connection -> {
-                    // Tạo lệnh SQL truy vấn
-                    PreparedStatement statement = connection.prepareStatement(GET_SQL);
-                    statement.setString(1, key);
+  }
 
-                    // Thực thi truy vấn
-                    ResultSet table = statement.executeQuery();
+  // Methods:
+  @Override
+  public User get(String key) throws SQLException {
+    return DBUtil.executeQuery(
+        connection -> {
+          // Tạo lệnh SQL truy vấn
+          PreparedStatement statement = connection.prepareStatement(GET_SQL);
+          statement.setString(1, key);
 
-                    // Kiểm tra kết quả truy vấn có rỗng không
-                    if (!table.next()) {
-                        connection.close();
-                        return null;
-                    }
+          // Thực thi truy vấn
+          ResultSet table = statement.executeQuery();
 
-                    // Chuyển đổi bảng kết quả truy vấn sang đối tượng User
-                    return UserConverter.getInstance()
-                            .convert(table);
-                });
-    }
+          // Kiểm tra kết quả truy vấn có rỗng không
+          if (!table.next()) {
+            connection.close();
+            return null;
+          }
 
-    @Override
-    public List<User> getAll() throws SQLException {
-        return DBUtil.executeQuery(
-                connection -> {
-                    // Tạo lệnh SQL
-                    PreparedStatement statement = connection.prepareStatement(GET_ALL_SQL);
+          // Chuyển đổi bảng kết quả truy vấn sang đối tượng User
+          return UserConverter.getInstance()
+              .convert(table);
+        });
+  }
 
-                    // Thực thi truy vấn
-                    ResultSet table = statement.executeQuery();
+  @Override
+  public List<User> getAll() throws SQLException {
+    return DBUtil.executeQuery(
+        connection -> {
+          // Tạo lệnh SQL
+          PreparedStatement statement = connection.prepareStatement(GET_ALL_SQL);
 
-                    // Khởi tạo danh sách người dùng
-                    List<User> users = new ArrayList<>();
+          // Thực thi truy vấn
+          ResultSet table = statement.executeQuery();
 
-                    // Duyệt qua từng dòng trong bảng dữ liệu trả về
-                    while (table.next()) {
-                        // Chuyển đổi bảng sang đối tượng User
-                        User user = UserConverter.getInstance()
-                                .convert(table);
+          // Khởi tạo danh sách người dùng
+          List<User> users = new ArrayList<>();
 
-                        // Thêm đói tượng User sau khi chuyển đổi vào danh sách
-                        users.add(user);
-                    }
+          // Duyệt qua từng dòng trong bảng dữ liệu trả về
+          while (table.next()) {
+            // Chuyển đổi bảng sang đối tượng User
+            User user = UserConverter.getInstance()
+                .convert(table);
 
-                    // Trả ra danh sách người dùng
-                    return users;
-                });
-    }
+            // Thêm đói tượng User sau khi chuyển đổi vào danh sách
+            users.add(user);
+          }
 
-    @Override
-    public void insert(User target) throws SQLException {
-        // Truy xuất thông tin người dùng
-        String username = target.getUsername();
-        String password = target.getPassword();
-        String fullName = target.getFullName();
-        String roleStr = target.getRole()
-                .name();
+          // Trả ra danh sách người dùng
+          return users;
+        });
+  }
 
-        // Thực thi insert vào CSDL
-        DBUtil.executeUpdate(
-                connection -> {
-                    // Tạo lệnh SQL
-                    PreparedStatement statement = connection.prepareStatement(INSERT_SQL);
+  @Override
+  public void insert(User target) throws SQLException {
+    // Truy xuất thông tin người dùng
+    String username = target.getUsername();
+    String password = target.getPassword();
+    String fullName = target.getFullName();
+    String roleStr = target.getRole()
+        .name();
 
-                    // Gán tham số cho các ? trong lệnh
-                    statement.setString(1, username);
-                    statement.setString(2, password);
-                    statement.setString(3, fullName);
-                    statement.setString(4, roleStr);
+    // Thực thi insert vào CSDL
+    DBUtil.executeUpdate(
+        connection -> {
+          // Tạo lệnh SQL
+          PreparedStatement statement = connection.prepareStatement(INSERT_SQL);
 
-                    // Thực thi lệnh SQL
-                    statement.executeUpdate();
-                });
-    }
+          // Gán tham số cho các ? trong lệnh
+          statement.setString(1, username);
+          statement.setString(2, password);
+          statement.setString(3, fullName);
+          statement.setString(4, roleStr);
 
-    @Override
-    public void update(User target) throws SQLException {
-        // Truy xuất thông tin người dùng
-        String username = target.getUsername();
-        String password = target.getPassword();
-        String fullName = target.getFullName();
-        String roleStr = target.getRole()
-                .name();
+          // Thực thi lệnh SQL
+          statement.executeUpdate();
+        });
+  }
 
-        // Thực thi update vào CSDL
-        DBUtil.executeUpdate(
-                connection -> {
-                    // Tạo lệnh SQL
-                    PreparedStatement statement = connection.prepareStatement(UPDATE_SQL);
+  @Override
+  public void update(User target) throws SQLException {
+    // Truy xuất thông tin người dùng
+    String username = target.getUsername();
+    String password = target.getPassword();
+    String fullName = target.getFullName();
+    String roleStr = target.getRole()
+        .name();
 
-                    // Gán tham số cho các ? trong lệnh
-                    statement.setString(4, username);
-                    statement.setString(1, password);
-                    statement.setString(2, fullName);
-                    statement.setString(3, roleStr);
+    // Thực thi update vào CSDL
+    DBUtil.executeUpdate(
+        connection -> {
+          // Tạo lệnh SQL
+          PreparedStatement statement = connection.prepareStatement(UPDATE_SQL);
 
-                    // Thực thi lệnh SQL
-                    statement.executeUpdate();
-                });
-    }
+          // Gán tham số cho các ? trong lệnh
+          statement.setString(4, username);
+          statement.setString(1, password);
+          statement.setString(2, fullName);
+          statement.setString(3, roleStr);
 
-    @Override
-    public void delete(User target) throws SQLException {
-        // Lấy khóa chính của user
-        String username = target.getUsername();
+          // Thực thi lệnh SQL
+          statement.executeUpdate();
+        });
+  }
 
-        // Thực thi delete dưới CSDL
-        DBUtil.executeUpdate(
-                connection -> {
-                    // Tạo lệnh SQL
-                    PreparedStatement statement = connection.prepareStatement(DELETE_SQL);
+  @Override
+  public void delete(User target) throws SQLException {
+    // Lấy khóa chính của user
+    String username = target.getUsername();
 
-                    // Gán tham số cho các ? trong lệnh
-                    statement.setString(1, username);
+    // Thực thi delete dưới CSDL
+    DBUtil.executeUpdate(
+        connection -> {
+          // Tạo lệnh SQL
+          PreparedStatement statement = connection.prepareStatement(DELETE_SQL);
 
-                    // Thực thi lệnh SQL
-                    statement.executeUpdate();
-                });
-    }
+          // Gán tham số cho các ? trong lệnh
+          statement.setString(1, username);
+
+          // Thực thi lệnh SQL
+          statement.executeUpdate();
+        });
+  }
 }

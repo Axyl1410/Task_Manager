@@ -10,31 +10,32 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/userdelete")
+@WebServlet("/deleteuser")
 public class UserDeleteServlet extends BaseServlet {
-
   public UserDeleteServlet() {
     super();
   }
 
+  private UserDBHandler userDBHandler = UserDBHandler.getInstance();
+
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
     if (!isLoggedInUserAdmin(request)) {
       response.sendRedirect(request.getContextPath() + "/no-permission.jsp");
       return;
     }
-//    request.getRequestDispatcher("/WEB-INF/userdelete.jsp").forward(request, response);
+
+    try {
+      String username = request.getParameter("username");
+      System.out.println(username);
+      User userToDelete = new User();
+      userToDelete.setUsername(username);
+
+      userDBHandler.delete(userToDelete);
+      response.sendRedirect("index.jsp");
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
-//    if ("POST".equalsIgnoreCase(request.getMethod())) {
-//      try {
-//        String username = request.getParameter("username");
-//        User user = new User();
-//        user.setUsername(username);
-//        UserDBHandler.getInstance().delete(user);
-//        response.sendRedirect(request.getContextPath() + "/WEB-INF/users.jsp");
-//      } catch (SQLException e) {
-//        throw new RuntimeException(e);
-//      }
-//    }
-//  }
 }
