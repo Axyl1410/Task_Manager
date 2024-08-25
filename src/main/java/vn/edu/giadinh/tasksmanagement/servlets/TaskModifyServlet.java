@@ -20,7 +20,7 @@ public class TaskModifyServlet extends HttpServlet {
     super();
   }
 
-  TaskDBHandler taskDBHandler = TaskDBHandler.getInstance();
+  private final TaskDBHandler taskDBHandler = TaskDBHandler.getInstance();
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,28 +39,28 @@ public class TaskModifyServlet extends HttpServlet {
         return;
       }
 
-      if (title == null || title.equals("")) {
+      if (title == null || title.isEmpty()) {
         title = existingTask.getTitle();
       }
-      if (description == null || description.equals("")) {
+      if (description == null || description.isEmpty()) {
         description = existingTask.getDescription();
       }
-      if (responsibility == null || responsibility.equals("")) {
+      if (responsibility == null || responsibility.isEmpty()) {
         responsibility = existingTask.getResponsibility();
       }
-      if (tester == null || tester.equals("")) {
+      if (tester == null || tester.isEmpty()) {
         tester = existingTask.getTester();
       }
 
       String statusParem = request.getParameter("status");
-      if (status == null || status.equals("")) {
+      if (statusParem == null || statusParem.isEmpty()) {
         status = existingTask.getStatus();
       } else {
         status = TaskStatus.valueOf(statusParem);
       }
 
       String progressParem = request.getParameter("progress");
-      if (progress == null || progress.equals("")) {
+      if (progressParem == null || progressParem.isEmpty()) {
         progress = existingTask.getProgress();
       } else {
         progress = TaskProgress.valueOf(progressParem);

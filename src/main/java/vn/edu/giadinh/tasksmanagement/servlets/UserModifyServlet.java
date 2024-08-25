@@ -17,7 +17,7 @@ public class UserModifyServlet extends BaseServlet {
     super();
   }
 
-  private UserDBHandler userDBHandler = UserDBHandler.getInstance();
+  private final UserDBHandler userDBHandler = UserDBHandler.getInstance();
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

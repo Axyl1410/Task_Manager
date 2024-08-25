@@ -16,7 +16,7 @@ public class UserDeleteServlet extends BaseServlet {
     super();
   }
 
-  private UserDBHandler userDBHandler = UserDBHandler.getInstance();
+  private final UserDBHandler userDBHandler = UserDBHandler.getInstance();
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -28,6 +28,12 @@ public class UserDeleteServlet extends BaseServlet {
 
     try {
       String username = request.getParameter("username");
+      User currentUser = getLoggedInUser(request);
+
+      if (currentUser != null && currentUser.getUsername().equals(username)) {
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Không thể xóa chính mình");
+        return;
+      }
 
       User existingUser = userDBHandler.get(username);
       if (existingUser == null) {

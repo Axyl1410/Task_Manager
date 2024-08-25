@@ -19,7 +19,7 @@ public class TaskAddServlet extends HttpServlet {
     super();
   }
 
-  TaskDBHandler taskDBHandler = TaskDBHandler.getInstance();
+  private final TaskDBHandler taskDBHandler = TaskDBHandler.getInstance();
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

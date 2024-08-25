@@ -10,15 +10,18 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <body>
     <%@ include file="./component/sidebar.jsp" %>
-    <div class="p-4 sm:ml-[240px]">
+    <div class="h-screen overflow-hidden p-4 sm:ml-[240px]">
       <div class="flex h-[calc(100vh-72px)] w-full items-center justify-center">
         <div class="w-full space-y-5">
-          <h1 class="text-center text-2xl">Xin chào ${sessionScope.user} !</h1>
+          <h1 class="ani text-center text-2xl">
+            Xin chào ${sessionScope.user} !
+          </h1>
           <div class="flex flex-col items-center gap-2 sm:flex-row">
             <div
-              class="flex h-[150px] w-1/3 flex-col items-center justify-center rounded-md border border-sky-400"
+              class="ani flex h-[150px] w-1/3 flex-col items-center justify-center rounded-md border border-sky-400"
             >
               <svg
                 class="size-8"
@@ -34,7 +37,7 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
               <h1>Dashboard</h1>
             </div>
             <div
-              class="flex h-[150px] w-1/3 flex-col items-center justify-center rounded-md border border-sky-400"
+              class="ani flex h-[150px] w-1/3 flex-col items-center justify-center rounded-md border border-sky-400"
             >
               <svg
                 class="size-8"
@@ -65,7 +68,7 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
               <h1>Tasks</h1>
             </div>
             <div
-              class="flex h-[150px] w-1/3 flex-col items-center justify-center rounded-md border border-sky-400"
+              class="ani flex h-[150px] w-1/3 flex-col items-center justify-center rounded-md border border-sky-400"
             >
               <svg
                 class="size-8"
@@ -111,9 +114,16 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
       <div
         class="flex h-10 w-full flex-wrap items-center justify-between font-semibold"
       >
-        <div>Axyl</div>
-        <div>Copyright © 2024 Axyl. All rights reserved.</div>
+        <div class="ani">Axyl</div>
+        <div class="ani">Copyright © 2024 Axyl. All rights reserved.</div>
       </div>
     </div>
+    <script>
+      gsap.fromTo(
+        [".ani"],
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.15, duration: 1, ease: "power3.out" }
+      );
+    </script>
   </body>
 </html>

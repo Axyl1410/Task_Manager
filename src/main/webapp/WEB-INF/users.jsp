@@ -12,6 +12,7 @@ prefix="c" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <style>
       #toggle {
         max-height: 1200px;
@@ -36,9 +37,9 @@ prefix="c" %>
     <div class="ml-[240px] p-4">
       <div class="w-full">
         <div class="w-full border-b border-slate-500 pb-4">
-          <h1 class="text-2xl font-bold">Want to make modify?</h1>
+          <h1 class="ani text-2xl font-bold">Want to make modify?</h1>
           <button
-            class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
+            class="ani mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
             onclick="togglehidden()"
             id="togglebtn"
           >
@@ -330,6 +331,11 @@ prefix="c" %>
       btn.addEventListener("click", () => {
         toggle.classList.toggle("hidden1");
       });
+      gsap.fromTo(
+        [".ani"],
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.15, duration: 1, ease: "power3.out" }
+      );
     </script>
   </body>
 </html>

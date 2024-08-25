@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
-isELIgnored="false" %><%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+isELIgnored="false" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +13,12 @@ prefix="c" %>
       type="image/svg+xml"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   </head>
   <body>
-    <div class="flex h-screen w-full items-center justify-center px-4 lg:px-0">
+    <div
+      class="flex h-screen w-full items-center justify-center overflow-hidden px-4 lg:px-0"
+    >
       <div
         class="flex h-screen w-full grid-cols-2 items-center justify-center rounded-sm lg:grid"
       >
@@ -67,7 +70,9 @@ prefix="c" %>
               </div>
             </form>
             <div class="border-t">
-              <div class="my-5 font-bold">Star for me:</div>
+              <div class="my-5 font-bold">
+                <p>Star for me:</p>
+              </div>
               <a
                 href="https://github.com/Axyl1410/task_manager"
                 target="_blank"
@@ -101,5 +106,12 @@ prefix="c" %>
         </div>
       </div>
     </div>
+    <script>
+      gsap.fromTo(
+        ["h1", "h2", "img", "button", "p", "input"],
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.15, duration: 1, ease: "power3.out" }
+      );
+    </script>
   </body>
 </html>

@@ -17,7 +17,7 @@ public class TaskDeleteServlet extends HttpServlet {
     super();
   }
 
-  private TaskDBHandler taskDBHandler = TaskDBHandler.getInstance();
+  private final TaskDBHandler taskDBHandler = TaskDBHandler.getInstance();
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
