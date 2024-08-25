@@ -56,56 +56,54 @@ prefix="c" %>
             <div class="w-full gap-4 border border-red-500 pb-4">
               <div class="w-full border-b border-slate-500 p-4">
                 <p class="pb-2 text-xl font-bold">Add task</p>
-                <form action="post">
-                  <div class="pb-2">
-                    <p>Title</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addtitle"
-                    />
-                  </div>
-                  <div class="pb-2">
-                    <p>Description</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="adddescription"
-                    />
-                  </div>
-                  <div>
-                    <p>Status</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addstatus"
-                    />
-                  </div>
-                  <div>
-                    <p>Progress</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addprogress"
-                    />
-                  </div>
-                  <div>
-                    <p>Responsibility</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addresponsibility"
-                    />
-                  </div>
-                  <div>
-                    <p>Tester</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addtester"
-                    />
-                  </div>
-                </form>
+                <div class="pb-2">
+                  <p>Title</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addtitle"
+                  />
+                </div>
+                <div class="pb-2">
+                  <p>Description</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="adddescription"
+                  />
+                </div>
+                <div>
+                  <p>Status</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addstatus"
+                  />
+                </div>
+                <div>
+                  <p>Progress</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addprogress"
+                  />
+                </div>
+                <div>
+                  <p>Responsibility</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addresponsibility"
+                  />
+                </div>
+                <div>
+                  <p>Tester</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addtester"
+                  />
+                </div>
                 <button
                   class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
                   onclick="const addtitle = document.getElementById('addtitle').value; const adddescription = document.getElementById('adddescription').value; const addstatus = document.getElementById('addstatus').value; const addprogress = document.getElementById('addprogress').value; const addresponsibility = document.getElementById('addresponsibility').value; const addtester = document.getElementById('addtester').value; addtask(addtitle,adddescription,addstatus,addprogress,addresponsibility,addtester)"
@@ -137,17 +135,15 @@ prefix="c" %>
               </div>
               <div class="w-full border-b border-slate-500 p-4">
                 <p class="pb-2 text-xl font-bold">Remove task</p>
-                <form action="post">
-                  <div class="pb-2">
-                    <p>id</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      name="username"
-                      id="username"
-                    />
-                  </div>
-                </form>
+                <div class="pb-2">
+                  <p>id</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    name="username"
+                    id="username"
+                  />
+                </div>
                 <button
                   class="flex items-center rounded-sm bg-red-600 px-4 py-2 text-white hover:bg-red-500 active:bg-red-400"
                   onclick="const id = document.getElementById('username').value; deletetask(id)"
@@ -166,64 +162,62 @@ prefix="c" %>
               </div>
               <div class="w-full p-4 pb-0">
                 <p class="pb-2 text-xl font-bold">Modify task</p>
-                <form action="post">
-                  <div class="pb-2">
-                    <p>id</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifyid"
-                    />
-                  </div>
-                  <div class="pb-2">
-                    <p>Title</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifytitle"
-                    />
-                  </div>
-                  <div class="pb-2">
-                    <p>Description</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifydescription"
-                    />
-                  </div>
-                  <div>
-                    <p>Status</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifystatus"
-                    />
-                  </div>
-                  <div>
-                    <p>Progress</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifyprogress"
-                    />
-                  </div>
-                  <div>
-                    <p>Responsibility</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifyresponsibility"
-                    />
-                  </div>
-                  <div>
-                    <p>Tester</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifytester"
-                    />
-                  </div>
-                </form>
+                <div class="pb-2">
+                  <p>id</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifyid"
+                  />
+                </div>
+                <div class="pb-2">
+                  <p>Title</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifytitle"
+                  />
+                </div>
+                <div class="pb-2">
+                  <p>Description</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifydescription"
+                  />
+                </div>
+                <div>
+                  <p>Status</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifystatus"
+                  />
+                </div>
+                <div>
+                  <p>Progress</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifyprogress"
+                  />
+                </div>
+                <div>
+                  <p>Responsibility</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifyresponsibility"
+                  />
+                </div>
+                <div>
+                  <p>Tester</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifytester"
+                  />
+                </div>
                 <button
                   class="mt-2 flex items-center rounded-sm bg-sky-600 px-4 py-2 text-white hover:bg-sky-500 active:bg-sky-400"
                   onclick="const idtitle=document.getElementById('modifyid').value; const modifytitle = document.getElementById('modifytitle').value; const modifydescription = document.getElementById('modifydescription').value; const modifystatus = document.getElementById('modifystatus').value; const modifyprogress = document.getElementById('modifyprogress').value; const modifyresponsibility = document.getElementById('modifyresponsibility').value; const modifytester = document.getElementById('modifytester').value; modifytask(idtitle,modifytitle,modifydescription,modifystatus,modifyprogress,modifyresponsibility,modifytester)"
@@ -265,7 +259,6 @@ prefix="c" %>
               </div>
             </div>
           </div>
-
           <div class="pt-4">
             <table class="w-full">
               <thead>
@@ -282,30 +275,30 @@ prefix="c" %>
             </table>
             <c:forEach items="${requestScope.tasks}" var="task">
               <table class="w-full">
+                <div class="w-full border-x border-indigo-600 p-2">
+                  <c:out value="id : ${task.id} -" />
+                  <c:out value="Description : ${task.description}" />
+                </div>
                 <tbody>
                   <tr class="odd:bg-slate-200">
-                    <td class="w-1/5 border-x border-indigo-600 p-2">
+                    <td class="w-1/5 border border-indigo-600 p-2">
                       <c:out value="${task.title}" />
                     </td>
-                    <td class="w-1/5 border-r border-indigo-600 p-2">
+                    <td class="w-1/5 border-r border-y border-indigo-600 p-2">
                       <c:out value="${task.status}" />
                     </td>
-                    <td class="w-1/5 border-r border-indigo-600 p-2">
+                    <td class="w-1/5 border-r border-y border-indigo-600 p-2">
                       <c:out value="${task.progress}" />
                     </td>
-                    <td class="w-1/5 border-r border-indigo-600 p-2">
+                    <td class="w-1/5 border-r border-y border-indigo-600 p-2">
                       <c:out value="${task.responsibility}" />
                     </td>
-                    <td class="w-1/5 border-r border-indigo-600 p-2">
+                    <td class="w-1/5 border-r border-y border-indigo-600 p-2">
                       <c:out value="${task.tester}" />
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <div class="w-full border border-indigo-600 p-2">
-                <c:out value="id : ${task.id} -" />
-                <c:out value="Description : ${task.description}" />
-              </div>
             </c:forEach>
           </div>
         </div>

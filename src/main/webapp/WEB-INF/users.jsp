@@ -55,40 +55,38 @@ prefix="c" %>
             <div class="w-full gap-4 border border-red-500 pb-4">
               <div class="w-full border-b border-slate-500 p-4">
                 <p class="pb-2 text-xl font-bold">Add user</p>
-                <form action="post">
-                  <div class="pb-2">
-                    <p>Username</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addUsername"
-                    />
-                  </div>
-                  <div class="pb-2">
-                    <p>Fullname</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addFullname"
-                    />
-                  </div>
-                  <div>
-                    <p>password</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addPassword"
-                    />
-                  </div>
-                  <div>
-                    <p>role</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="addrole"
-                    />
-                  </div>
-                </form>
+                <div class="pb-2">
+                  <p>Username</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addUsername"
+                  />
+                </div>
+                <div class="pb-2">
+                  <p>Fullname</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addFullname"
+                  />
+                </div>
+                <div>
+                  <p>password</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addPassword"
+                  />
+                </div>
+                <div>
+                  <p>role</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="addrole"
+                  />
+                </div>
                 <button
                   class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
                   onclick="const addusername = document.getElementById('addUsername').value; const addfullname = document.getElementById('addFullname').value; const addpassword = document.getElementById('addPassword').value; const addrole = document.getElementById('addrole').value; addUser(addusername, addfullname, addpassword,addrole)"
@@ -120,16 +118,14 @@ prefix="c" %>
               </div>
               <div class="w-full border-b border-slate-500 p-4">
                 <p class="pb-2 text-xl font-bold">Remove user</p>
-                <form action="post">
-                  <div class="pb-2">
-                    <p>Username</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="deleteUser"
-                    />
-                  </div>
-                </form>
+                <div class="pb-2">
+                  <p>Username</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="deleteUser"
+                  />
+                </div>
                 <button
                   class="flex items-center rounded-sm bg-red-600 px-4 py-2 text-white hover:bg-red-500 active:bg-red-400"
                   onclick="const id = document.getElementById('deleteUser').value; deleteUser(id)"
@@ -148,40 +144,38 @@ prefix="c" %>
               </div>
               <div class="w-full p-4 pb-0">
                 <p class="pb-2 text-xl font-bold">modify user</p>
-                <form action="post">
-                  <div class="pb-2">
-                    <p>Username</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifyusername"
-                    />
-                  </div>
-                  <div class="pb-2">
-                    <p>Fullname</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifyfullname"
-                    />
-                  </div>
-                  <div>
-                    <p>password</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifypassword"
-                    />
-                  </div>
-                  <div>
-                    <p>role</p>
-                    <input
-                      class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      type="text"
-                      id="modifyrole"
-                    />
-                  </div>
-                </form>
+                <div class="pb-2">
+                  <p>Username</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifyusername"
+                  />
+                </div>
+                <div class="pb-2">
+                  <p>Fullname</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifyfullname"
+                  />
+                </div>
+                <div>
+                  <p>password</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifypassword"
+                  />
+                </div>
+                <div>
+                  <p>role</p>
+                  <input
+                    class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    type="text"
+                    id="modifyrole"
+                  />
+                </div>
                 <button
                   class="mt-2 flex items-center rounded-sm bg-sky-600 px-4 py-2 text-white hover:bg-sky-500 active:bg-sky-400"
                   onclick="const modifypassword = document.getElementById('modifypassword').value ; const modifyfullname = document.getElementById('modifyfullname').value ; const modifyrole = document.getElementById('modifyrole').value ; const modifyusername = document.getElementById('modifyusername').value ; modifyUser(modifyusername,modifyfullname,modifypassword,modifyrole,modifyusername)"
