@@ -5,6 +5,7 @@ isELIgnored="false" %>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="icon"
@@ -52,11 +53,20 @@ isELIgnored="false" %>
           background-position: 0% 100%;
         }
       }
+
+      .fade-in-out {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .fade-in-out.active {
+        opacity: 1;
+      }
     </style>
   </head>
   <body>
     <div
-      class="container-error flex h-screen w-full items-center justify-center font-serif"
+      class="container-error fade-in-out flex h-screen w-full items-center justify-center font-serif"
     >
       <div
         class="flex h-full w-full items-center justify-center rounded bg-secondary px-8 py-4 text-primary transition-colors duration-300 dark:bg-primary dark:text-secondary md:px-12 md:py-8"
@@ -64,24 +74,24 @@ isELIgnored="false" %>
       >
         <div class="content max-w-[600px] text-center">
           <h2
-            class="header relative mb-4 max-w-[600px] font-mono text-[120px] leading-[1em] after:absolute after:left-0 after:right-0 after:top-0 sm:text-[200px] rp:text-[18vw]"
+            class="ani header relative mb-4 max-w-[600px] font-mono text-[120px] leading-[1em] after:absolute after:left-0 after:right-0 after:top-0 sm:text-[200px] rp:text-[18vw]"
             data-text="403"
           >
             403
           </h2>
           <h4
-            class="mb-5 max-w-[600px] text-[20px] font-bold uppercase sm:text-[24px]"
+            class="ani mb-5 max-w-[600px] text-[20px] font-bold uppercase sm:text-[24px]"
           >
             You shall not pass!
           </h4>
-          <p class="text-balance text-[1.2em]">
+          <p class="ani text-balance text-[1.2em]">
             It seems like you have wandered into a restricted area. You do not
             have permission to access this page.
           </p>
           <div class="mt-5 flex flex-col justify-center gap-2 sm:flex-row">
             <a href="${pageContext.request.contextPath}/index.jsp">
               <button
-                class="flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white"
+                class="ani flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white"
               >
                 <svg
                   class="size-4"
@@ -113,7 +123,7 @@ isELIgnored="false" %>
             </a>
             <a href="https://github.com/Axyl1410/" target="_blank">
               <button
-                class="flex items-center rounded-sm bg-red-600 px-4 py-2 text-white"
+                class="ani flex items-center rounded-sm bg-red-600 px-4 py-2 text-white"
               >
                 <svg
                   class="size-3 fill-white"
@@ -138,5 +148,18 @@ isELIgnored="false" %>
         </div>
       </div>
     </div>
+    <script>
+      gsap.fromTo(
+        [".ani"],
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.15, duration: 1, ease: "power3.out" }
+      );
+    </script>
+    <script>
+      window.addEventListener("load", function () {
+        var pageContent = document.querySelector(".fade-in-out");
+        pageContent.classList.add("active");
+      });
+    </script>
   </body>
 </html>

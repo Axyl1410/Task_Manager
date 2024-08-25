@@ -32,12 +32,15 @@ public class TaskAddServlet extends HttpServlet {
       String tester = request.getParameter("tester");
 
       Task task;
-      if (responsibility == null || responsibility.isEmpty() || tester == null || tester.isEmpty()) {
+      if (responsibility == null || responsibility.isEmpty() && tester == null || tester.isEmpty()) {
         task = new Task(title, description, status, progress);
+      } else if (responsibility == null || responsibility.isEmpty()) {
+        task = new Task(title, description, status, progress, null, tester);
+      } else if (tester == null || tester.isEmpty()) {
+        task = new Task(title, description, status, progress, responsibility, null);
       } else {
         task = new Task(title, description, status, progress, responsibility, tester);
       }
-
       taskDBHandler.insert(task);
     } catch (SQLException e) {
       throw new RuntimeException(e);

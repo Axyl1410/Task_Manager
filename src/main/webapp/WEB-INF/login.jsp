@@ -14,10 +14,20 @@ prefix="c" %>
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <style>
+      .fade-in-out {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .fade-in-out.active {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
     <div
-      class="flex h-screen w-full items-center justify-center overflow-hidden px-4 lg:px-0"
+      class="fade-in-out flex h-screen w-full items-center justify-center overflow-hidden px-4 lg:px-0"
     >
       <div
         class="flex h-screen w-full grid-cols-2 items-center justify-center rounded-sm lg:grid"
@@ -27,42 +37,42 @@ prefix="c" %>
             class="flex w-full max-w-[532px] flex-col justify-center space-y-4"
           >
             <img
-              class="size-10"
+              class="ani size-10"
               src="https://nguyentruonggiang.id.vn/img/logoblue.webp"
               alt="Your Company"
             />
-            <h1 class="text-2xl font-bold">Sign in to your account</h1>
+            <h1 class="ani text-2xl font-bold">Sign in to your account</h1>
             <form
               class="space-y-2"
               action="${pageContext.request.contextPath}/login"
               method="post"
             >
               <div>
-                <h2>Tên đăng nhập</h2>
+                <h2 class="ani">Tên đăng nhập</h2>
                 <input
-                  class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="ani block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   type="text"
                   name="username"
                   required
                 />
               </div>
               <div>
-                <h2>Mật khẩu</h2>
+                <h2 class="ani">Mật khẩu</h2>
                 <input
-                  class="block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="ani block w-full rounded-md border-0 bg-[#F2F2F2] p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   type="password"
                   name="password"
                   required
                 />
               </div>
               <c:if test="${not empty error}">
-                <div class="py-4 text-red-500">
+                <div class="ani py-4 text-red-500">
                   <c:out value="${error}" />
                 </div>
               </c:if>
               <div>
                 <button
-                  class="my-5 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  class="ani my-5 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   type="submit"
                 >
                   Đăng nhập
@@ -70,7 +80,7 @@ prefix="c" %>
               </div>
             </form>
             <div class="border-t">
-              <div class="my-5 font-bold">
+              <div class="ani my-5 font-bold">
                 <p>Star for me:</p>
               </div>
               <a
@@ -78,7 +88,7 @@ prefix="c" %>
                 target="_blank"
               >
                 <button
-                  class="mt-5 flex w-full items-center justify-center rounded-md border bg-[#F2F2F2] px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  class="ani mt-5 flex w-full items-center justify-center rounded-md border bg-[#F2F2F2] px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   <svg
                     class="size-5"
@@ -99,7 +109,7 @@ prefix="c" %>
         </div>
         <div class="hidden lg:block">
           <img
-            class="h-screen object-cover"
+            class="ani h-screen object-cover"
             src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
             alt=""
           />
@@ -108,10 +118,16 @@ prefix="c" %>
     </div>
     <script>
       gsap.fromTo(
-        ["h1", "h2", "img", "button", "p", "input"],
+        [".ani"],
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, stagger: 0.15, duration: 1, ease: "power3.out" }
       );
+    </script>
+    <script>
+      window.addEventListener("load", function () {
+        var pageContent = document.querySelector(".fade-in-out");
+        pageContent.classList.add("active");
+      });
     </script>
   </body>
 </html>
