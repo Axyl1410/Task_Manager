@@ -157,8 +157,8 @@ isELIgnored="false" %>
       );
     </script>
     <script>
-      window.addEventListener("load", function () {
-        var pageContent = document.querySelector(".fade-in-out");
+      window.addEventListener("load", () => {
+        let pageContent = document.querySelector(".fade-in-out");
         pageContent.classList.add("active");
       });
     </script>

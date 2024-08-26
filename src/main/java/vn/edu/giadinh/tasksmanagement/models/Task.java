@@ -32,10 +32,6 @@ public class Task {
     this.tester = tester;
   }
 
-  public Task(String title, String description, TaskStatus status, TaskProgress progress) {
-    this(title, description, status, progress, null, null);
-  }
-
   public Task(int id) {
     this.id = id;
   }

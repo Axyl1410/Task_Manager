@@ -32,8 +32,8 @@ public class TaskAddServlet extends HttpServlet {
       String tester = request.getParameter("tester");
 
       Task task;
-      if (responsibility == null || responsibility.isEmpty() && tester == null || tester.isEmpty()) {
-        task = new Task(title, description, status, progress);
+      if ((responsibility == null || responsibility.isEmpty()) && (tester == null || tester.isEmpty())) {
+        task = new Task(title, description, status, progress, null, null);
       } else if (responsibility == null || responsibility.isEmpty()) {
         task = new Task(title, description, status, progress, null, tester);
       } else if (tester == null || tester.isEmpty()) {

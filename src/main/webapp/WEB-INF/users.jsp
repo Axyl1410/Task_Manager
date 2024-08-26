@@ -253,28 +253,6 @@ prefix="c" %>
       </div>
     </div>
     <script>
-      let deleteUser = (id) => {
-        if (id == "") alert("missing information");
-        else if (confirm("Are you sure you want to delete this user?")) {
-          fetch("deleteuser", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-              username: id,
-            }),
-          }).then((response) => {
-            if (response.ok) {
-              alert("Delete user success");
-              window.location.reload();
-            } else {
-              alert("Delete user fail");
-            }
-          });
-        }
-      };
-
       let addUser = (username, fullname, password, role) => {
         if (username == "" || fullname == "" || password == "" || role == "")
           alert("missing information");
@@ -294,11 +272,29 @@ prefix="c" %>
             if (response.ok) {
               alert("Add user success");
               window.location.reload();
-            } else {
-              alert("Add user fail");
-            }
+            } else alert("Add user fail");
           });
-        }
+        } else alert("Add user cancel");
+      };
+
+      let deleteUser = (id) => {
+        if (id == "") alert("missing information");
+        else if (confirm("Are you sure you want to delete this user?")) {
+          fetch("deleteuser", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              username: id,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Delete user success");
+              window.location.reload();
+            } else alert("Delete user fail");
+          });
+        } else alert("Delete user cancel");
       };
 
       let modifyUser = (username, fullname, password, role) => {
@@ -319,11 +315,9 @@ prefix="c" %>
             if (response.ok) {
               alert("Modify user success");
               window.location.reload();
-            } else {
-              alert("Modify user fail");
-            }
+            } else alert("Modify user fail");
           });
-        }
+        } else alert("Modify user cancel");
       };
 
       const toggle = document.getElementById("toggle");
@@ -334,8 +328,8 @@ prefix="c" %>
       });
     </script>
     <script>
-      window.addEventListener("load", function () {
-        var pageContent = document.querySelector(".fade-in-out");
+      window.addEventListener("load", () => {
+        let pageContent = document.querySelector(".fade-in-out");
         pageContent.classList.add("active");
       });
     </script>

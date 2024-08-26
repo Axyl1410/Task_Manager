@@ -305,6 +305,39 @@ prefix="c" %>
       </div>
     </div>
     <script>
+      const addtask = (
+        title,
+        description,
+        status,
+        progress,
+        responsibility,
+        tester
+      ) => {
+        if (title == "" || description == "" || status == "" || progress == "")
+          alert("Please enter all fields");
+        else if (confirm("Are you sure to add this task?")) {
+          fetch("addtask", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              title: title,
+              description: description,
+              status: status,
+              progress: progress,
+              responsibility: responsibility,
+              tester: tester,
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              alert("Add task success");
+              window.location.reload();
+            } else alert("Add task fail");
+          });
+        } else alert("Add task cancel");
+      };
+
       const deletetask = (id) => {
         if (id == "") alert("Please enter id");
         else if (confirm("Are you sure to delete this task?")) {
@@ -320,11 +353,9 @@ prefix="c" %>
             if (response.ok) {
               alert("Delete task success");
               window.location.reload();
-            } else {
-              alert("Delete task fail");
-            }
+            } else alert("Delete task fail");
           });
-        }
+        } else alert("Delete task cancel");
       };
 
       const modifytask = (
@@ -356,46 +387,9 @@ prefix="c" %>
             if (response.ok) {
               alert("Modify task success");
               window.location.reload();
-            } else {
-              alert("Modify task fail");
-            }
+            } else alert("Modify task fail");
           });
-        }
-      };
-
-      const addtask = (
-        title,
-        description,
-        status,
-        progress,
-        responsibility,
-        tester
-      ) => {
-        if (title == "" || description == "" || status == "" || progress == "")
-          alert("Please enter all fields");
-        else if (confirm("Are you sure to add this task?")) {
-          fetch("addtask", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-              title: title,
-              description: description,
-              status: status,
-              progress: progress,
-              responsibility: responsibility,
-              tester: tester,
-            }),
-          }).then((response) => {
-            if (response.ok) {
-              alert("Add task success");
-              window.location.reload();
-            } else {
-              alert("Add task fail");
-            }
-          });
-        }
+        } else alert("Modify task cancel");
       };
 
       const toggle = document.getElementById("toggle");
@@ -406,8 +400,8 @@ prefix="c" %>
       });
     </script>
     <script>
-      window.addEventListener("load", function () {
-        var pageContent = document.querySelector(".fade-in-out");
+      window.addEventListener("load", () => {
+        let pageContent = document.querySelector(".fade-in-out");
         pageContent.classList.add("active");
       });
     </script>

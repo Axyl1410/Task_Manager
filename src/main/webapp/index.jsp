@@ -127,8 +127,11 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
         <div
           class="flex h-10 w-full flex-wrap items-center justify-between font-semibold"
         >
-          <div class="ani">Axyl</div>
-          <div class="ani">Copyright © 2024 Axyl. All rights reserved.</div>
+          <div class="ani" translate="no">Axyl</div>
+          <div class="ani">
+            Copyright © 2024 <span translate="no">Axyl</span>. All rights
+            reserved.
+          </div>
         </div>
       </div>
     </div>
@@ -140,8 +143,8 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
       );
     </script>
     <script>
-      window.addEventListener("load", function () {
-        var pageContent = document.querySelector(".fade-in-out");
+      window.addEventListener("load", () => {
+        let pageContent = document.querySelector(".fade-in-out");
         pageContent.classList.add("active");
       });
     </script>
