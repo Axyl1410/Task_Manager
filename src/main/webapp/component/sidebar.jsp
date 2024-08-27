@@ -7,12 +7,12 @@
         <img
           class="size-10"
           alt=""
-          src="https://nguyentruonggiang.id.vn/img/logoblue.webp"
+          src="https://nguyentruonggiang.id.vn/img/logowhite.webp"
         />
         &nbsp; &nbsp;
         <h1 class="font-bold">Task manager</h1>
       </div>
-      <div class="flex flex-col gap-1 border-t pt-4">
+      <div class="flex flex-col gap-4 border-t border-slate-400 pt-4">
         <div>
           <a href="/">
             <div
@@ -67,7 +67,7 @@
           </a>
         </div>
         <div class="mt-4 flex flex-col gap-2">
-          <h1 class="font-serif font-semibold">Admin only</h1>
+          <h1 class="font-serif text-xs font-semibold">Admin only</h1>
           <a href="/users">
             <div
               class="flex items-center fill-slate-300 p-2 transition-colors duration-300 hover:bg-slate-700 hover:fill-white hover:text-white"
@@ -114,7 +114,7 @@
         </div>
       </div>
     </div>
-    <div class="border-t pt-4">
+    <div class="border-t border-slate-400 pt-4">
       <a href="/logout">
         <div
           class="flex items-center stroke-slate-300 p-2 transition-colors duration-300 hover:bg-slate-700 hover:stroke-white hover:text-white"

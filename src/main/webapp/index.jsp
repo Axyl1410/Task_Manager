@@ -4,7 +4,7 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
   <meta charset="UTF-8" />
   <link
     rel="icon"
-    href="https://nguyentruonggiang.id.vn/img/logoblue.webp"
+    href="https://nguyentruonggiang.id.vn/img/logowhite.webp"
     type="image/svg+xml"
   />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,9 +16,27 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
     }
-
     .fade-in-out.active {
       opacity: 1;
+    }
+    .links {
+      position: relative;
+    }
+    .links::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: #000;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s;
+    }
+    .links:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
   </style>
   <body>
@@ -127,7 +145,14 @@ contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
         <div
           class="flex h-10 w-full flex-wrap items-center justify-between font-semibold"
         >
-          <div class="ani" translate="no">Axyl</div>
+          <div class="ani">
+            <a
+              class="links relative inline-block"
+              href="https://nguyentruonggiang.id.vn/"
+              translate="no"
+              >Axyl</a
+            >
+          </div>
           <div class="ani">
             Copyright © 2024 <span translate="no">Axyl</span>. All rights
             reserved.

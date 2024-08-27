@@ -10,7 +10,7 @@ isELIgnored="false" %>
     <title>404</title>
     <link
       rel="icon"
-      href="https://nguyentruonggiang.id.vn/img/logoblue.webp"
+      href="https://nguyentruonggiang.id.vn/img/logowhite.webp"
       type="image/svg+xml"
     />
     <style>

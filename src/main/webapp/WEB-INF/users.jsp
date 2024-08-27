@@ -6,7 +6,7 @@ prefix="c" %>
     <title>Danh sách người dùng</title>
     <link
       rel="icon"
-      href="https://nguyentruonggiang.id.vn/img/logoblue.webp"
+      href="https://nguyentruonggiang.id.vn/img/logowhite.webp"
       type="image/svg+xml"
     />
     <meta charset="UTF-8" />
