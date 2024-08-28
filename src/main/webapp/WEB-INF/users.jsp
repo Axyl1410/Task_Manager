@@ -22,6 +22,7 @@ prefix="c" %>
       #toggle.hidden1 {
         max-height: 0;
       }
+
       .fade-in-out {
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
@@ -251,7 +252,11 @@ prefix="c" %>
           </div>
         </div>
       </div>
+      <p class="ml-[240px] flex h-[3rem] items-center p-4 pb-8">
+        Copyright © 2024 Axyl. All rights reserved
+      </p>
     </div>
+    <%@include file="../component/backtotop.jsp" %>
     <script>
       let addUser = (username, fullname, password, role) => {
         if (username == "" || fullname == "" || password == "" || role == "")

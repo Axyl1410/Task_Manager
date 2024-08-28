@@ -45,7 +45,6 @@ prefix="c" %>
             <h1 class="text-2xl font-bold">Want to make modify?</h1>
             <button
               class="mt-2 flex items-center rounded-sm bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500 active:bg-indigo-400"
-              onclick="togglehidden()"
               id="togglebtn"
             >
               Click me
@@ -303,7 +302,11 @@ prefix="c" %>
           </div>
         </div>
       </div>
+      <p class="ml-[240px] flex h-[3rem] items-center p-4 pb-8">
+        Copyright © 2024 Axyl. All rights reserved
+      </p>
     </div>
+    <%@include file="../component/backtotop.jsp" %>
     <script>
       const addtask = (
         title,
